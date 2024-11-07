@@ -4,7 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
+import static org.junit.Assert.*;
 
 public class IPokedexTest {
 
@@ -81,6 +84,14 @@ public class IPokedexTest {
 
         assert(pokedex.getPokemon(0).getIv() == 4);
         assert(pokedex.getPokemon(186).getIv() == 4);
+
+        assertThrows(PokedexException.class, () -> {
+            pokedex.getPokemon(-2);
+        });
+
+        assertThrows(PokedexException.class, () -> {
+            pokedex.getPokemon(999);
+        });
     }
 
     @Test
@@ -95,5 +106,40 @@ public class IPokedexTest {
             add(Bulbizarre);
             add(Aquali);
         }}));
+    }
+
+    @Test
+    public void testGetPokemonsWithOrder() {
+        pokedex = new Pokedex(new PokemonMetadataProvider(), new PokemonFactory(), new ArrayList<>());
+        pokedex.addPokemon(Aquali);
+        pokedex.addPokemon(Bulbizarre);
+
+        List<Pokemon> sortedPokemons = pokedex.getPokemons(Comparator.comparing(Pokemon::getName));
+        assertEquals(2, sortedPokemons.size());
+        assertEquals(Bulbizarre, sortedPokemons.get(1));
+        assertEquals(Aquali, sortedPokemons.get(0));
+    }
+
+    @Test
+    public void testGetPokemonMetadata() throws PokedexException {
+        pokedex = new Pokedex(new PokemonMetadataProvider(), new PokemonFactory(), new ArrayList<>());
+        PokemonMetadata metadata = pokedex.getPokemonMetadata(0);
+        assertEquals(0, metadata.getIndex());
+        assertEquals("Bulbasaur", metadata.getName());
+        assertEquals(126, metadata.getAttack());
+        assertEquals(126, metadata.getDefense());
+        assertEquals(90, metadata.getStamina());
+    }
+
+    @Test
+    public void testCreatePokemon() {
+        pokedex = new Pokedex(new PokemonMetadataProvider(), new PokemonFactory(), new ArrayList<>());
+        Pokemon createdPokemon = pokedex.createPokemon(0, 613, 64, 4000, 4);
+        assertNotNull(createdPokemon);
+        assertEquals(0, createdPokemon.getIndex());
+        assertEquals(613, createdPokemon.getCp());
+        assertEquals(64, createdPokemon.getHp());
+        assertEquals(4000, createdPokemon.getDust());
+        assertEquals(4, createdPokemon.getCandy());
     }
 }
