@@ -37,6 +37,7 @@ public enum PokemonComparators implements Comparator<Pokemon> {
 	public int compare(final Pokemon first, final Pokemon second) {
 		
 		return delegate.compare(first, second);
+
 	}
 
 }
