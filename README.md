@@ -13,4 +13,4 @@ Ce projet a été développé.
 - **Tests** : Utilisation de JUnit et Mockito.
 - **Intégration continue** : CircleCI .
 - **Couverture de code** : JaCoCo .
-
+ 
