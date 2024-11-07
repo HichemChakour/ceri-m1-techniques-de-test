@@ -51,5 +51,6 @@ public interface IPokedex extends IPokemonMetadataProvider, IPokemonFactory {
 	 * @return Sorted unmodifiable list of all pokemons.
 	 */
 	List<Pokemon> getPokemons(Comparator<Pokemon> order);
-	
+
+	Pokemon createPokemon(int index, int cp, int hp, int dust, int candy);
 }

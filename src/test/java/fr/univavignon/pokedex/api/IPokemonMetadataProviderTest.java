@@ -2,41 +2,41 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-
+import static org.junit.Assert.*;
 
 public class IPokemonMetadataProviderTest {
 
-    IPokemonMetadataProvider pokemonMetadataProvider ;
-
-
+    IPokemonMetadataProvider pokemonMetadataProvider;
 
     @Before
-    public void initTestpokemonMetadata() {
-        pokemonMetadataProvider =  Mockito.mock( IPokemonMetadataProvider.class );
+    public void initTestPokemonMetadata() {
+        pokemonMetadataProvider = new PokemonMetadataProvider();
     }
 
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
-        PokemonMetadata Bulbizarre = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
-        PokemonMetadata Aquali =new PokemonMetadata(186,"Aquali",168,168,260);
+        PokemonMetadata Bulbasaur = new PokemonMetadata(0, "Bulbasaur", 126, 126, 90);
+        PokemonMetadata Ivysaur = new PokemonMetadata(1, "Ivysaur", 156, 158, 120);
 
-        Mockito.when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(Bulbizarre);
-        Mockito.when(pokemonMetadataProvider.getPokemonMetadata(186)).thenReturn(Aquali);
+        // Test Bulbasaur metadata
+        PokemonMetadata fetchedBulbasaur = pokemonMetadataProvider.getPokemonMetadata(0);
+        assertEquals(Bulbasaur.getIndex(), fetchedBulbasaur.getIndex());
+        assertEquals(Bulbasaur.getName(), fetchedBulbasaur.getName());
+        assertEquals(Bulbasaur.getAttack(), fetchedBulbasaur.getAttack());
+        assertEquals(Bulbasaur.getDefense(), fetchedBulbasaur.getDefense());
+        assertEquals(Bulbasaur.getStamina(), fetchedBulbasaur.getStamina());
 
-        assert(pokemonMetadataProvider.getPokemonMetadata(0).getName().equals("Bulbizarre"));
-        assert(pokemonMetadataProvider.getPokemonMetadata(186).getName().equals("Aquali"));
-
-        assert(pokemonMetadataProvider.getPokemonMetadata(0).getAttack() == 126);
-        assert(pokemonMetadataProvider.getPokemonMetadata(186).getAttack() == 168);
-
-        assert(pokemonMetadataProvider.getPokemonMetadata(0).getDefense() == 126);
-        assert(pokemonMetadataProvider.getPokemonMetadata(186).getDefense() == 168);
-
-        assert(pokemonMetadataProvider.getPokemonMetadata(0).getStamina() == 90);
-        assert(pokemonMetadataProvider.getPokemonMetadata(186).getStamina() == 260);
-
-
+        // Test Ivysaur metadata
+        PokemonMetadata fetchedIvysaur = pokemonMetadataProvider.getPokemonMetadata(1);
+        assertEquals(Ivysaur.getIndex(), fetchedIvysaur.getIndex());
+        assertEquals(Ivysaur.getName(), fetchedIvysaur.getName());
+        assertEquals(Ivysaur.getAttack(), fetchedIvysaur.getAttack());
+        assertEquals(Ivysaur.getDefense(), fetchedIvysaur.getDefense());
+        assertEquals(Ivysaur.getStamina(), fetchedIvysaur.getStamina());
     }
 
+    @Test(expected = PokedexException.class)
+    public void testGetPokemonMetadataWithInvalidIndex() throws PokedexException {
+        pokemonMetadataProvider.getPokemonMetadata(999); // This should throw an exception
+    }
 }
