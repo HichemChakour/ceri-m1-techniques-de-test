@@ -8,6 +8,8 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider{
 
     public PokemonMetadataProvider() {
         this.metadataMap = new HashMap<>();
+        metadataMap.put(0, new PokemonMetadata(0, "Bulbasaur", 126, 126, 90));
+        metadataMap.put(1, new PokemonMetadata(1, "Ivysaur", 156, 158, 120));
     }
 
     @Override
