@@ -63,6 +63,9 @@ public class IPokedexTest {
 
         assert(pokedex.getPokemon(0).getCandy() == 4);
         assert(pokedex.getPokemon(186).getCandy() == 4);
+
+        assert(pokedex.getPokemon(0).getIv() == 4);
+        assert(pokedex.getPokemon(186).getIv() == 4);
     }
 
     @Test
