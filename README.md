@@ -4,7 +4,7 @@
 **Groupe** : ISLEN ALT
 
 ![Build Status](https://circleci.com/gh/HichemChakour/ceri-m1-techniques-de-test.svg?style=svg)
-![Coverage](https://codecov.io/gh/HichemChakour/ceri-m1-techniques-de-test/branch/main/graph/badge.svg)
+[![codecov](https://codecov.io/gh/HichemChakour/ceri-m1-techniques-de-test/graph/badge.svg?token=B9YBWZ5XET)](https://codecov.io/gh/HichemChakour/ceri-m1-techniques-de-test)
 
 ## Description
 Ce projet a été développé.
