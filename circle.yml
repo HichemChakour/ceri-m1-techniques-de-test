@@ -33,7 +33,7 @@ jobs:
             git config --global user.email "circleci@yourdomain.com"
             git config --global user.name "CircleCI"
             git clone --branch gh-pages https://github.com/HichemChakour/ceri-m1-techniques-de-test.git gh-pages
-            cp -r target/site/apidocs/* gh-pages/
+            cp -r target/reports/apidocs/* gh-pages/
             cd gh-pages
             git add .
             git commit -m "Deploy Javadoc from CircleCI build $CIRCLE_BUILD_NUM"
