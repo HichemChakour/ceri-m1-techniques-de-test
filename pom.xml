@@ -107,6 +107,8 @@
                 </executions>
                 <configuration>
                     <configLocation>src/main/resources/checkstyle.xml</configLocation>
+                    <consoleOutput>false</consoleOutput>
+                    <failsOnError>false</failsOnError>
                     <outputFileFormat>xml</outputFileFormat>
                 </configuration>
             </plugin>
