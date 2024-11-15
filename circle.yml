@@ -30,13 +30,13 @@ jobs:
       - run:
           name: Deploy Javadoc to GitHub Pages
           command: |
-            git config --global user.email "circleci@yourdomain.com"
-            git config --global user.name "CircleCI"
+            git config --global user.email "hchakour2003@gmail.com"
+            git config --global user.name "HichemChakour"
             git clone --branch gh-pages https://github.com/HichemChakour/ceri-m1-techniques-de-test.git gh-pages
             cp -r target/reports/apidocs/* gh-pages/
             cd gh-pages
             git add .
-            git commit -m "Deploy Javadoc from CircleCI build $CIRCLE_BUILD_NUM"
+            git commit -m "Deploy Javadoc from CircleCI build GIT_HICH"
             git push origin gh-pages
 workflows:
   version: 2
