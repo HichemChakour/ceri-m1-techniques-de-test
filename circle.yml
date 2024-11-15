@@ -16,6 +16,9 @@ jobs:
           name: Run tests
           command: mvn test
       - run:
+          name: Compile and Check Code Style
+          command: mvn clean compile checkstyle:check
+      - run:
           name: Generate JaCoCo Report
           command: mvn jacoco:report
       - codecov/upload:

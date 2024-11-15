@@ -4,9 +4,7 @@
         "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-    <!-- Vérifie la convention de nommage des classes, méthodes et variables -->
     <module name="TreeWalker">
-        <!-- Vérifie que les noms de classes commencent par une majuscule -->
         <module name="TypeName">
             <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
         </module>
