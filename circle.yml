@@ -23,7 +23,7 @@ jobs:
           command: mvn jacoco:report
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml  # Assurez-vous que ce chemin est correct
-          token: CODECOV_TOKEN  # Assurez-vous d'ajouter le token Codecov dans les variables d'environnement de CircleCI, si nécessaire
+          token: GIT_HICH  # Assurez-vous d'ajouter le token Codecov dans les variables d'environnement de CircleCI, si nécessaire
       - run:
           name: Generate javadoc
           command: mvn javadoc:javadoc
@@ -36,7 +36,7 @@ jobs:
             cp -r target/reports/apidocs/* gh-pages/
             cd gh-pages
             git add .
-            git commit -m "Deploy Javadoc from CircleCI build GIT_HICH"
+            git commit -m "Deploy Javadoc from CircleCI build $CIRCLE_BUILD_NUM"
             git push origin gh-pages
 workflows:
   version: 2
