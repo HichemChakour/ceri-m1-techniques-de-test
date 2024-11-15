@@ -28,12 +28,16 @@ jobs:
           name: Generate javadoc
           command: mvn javadoc:javadoc
       - run:
-          name: Publish to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GIT_HICH_TECH}}
-            publish_dir: ./target/site/apidocs
-
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            git config --global user.email "circleci@yourdomain.com"
+            git config --global user.name "CircleCI"
+            git clone --branch gh-pages https://github.com/<your-repo-username>/<your-repo-name>.git gh-pages
+            cp -r target/site/apidocs/* gh-pages/
+            cd gh-pages
+            git add .
+            git commit -m "Deploy Javadoc from CircleCI build $CIRCLE_BUILD_NUM"
+            git push origin gh-pages
 workflows:
   version: 2
   build_and_test:
