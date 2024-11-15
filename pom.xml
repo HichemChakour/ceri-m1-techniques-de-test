@@ -112,6 +112,7 @@
                     <outputFileFormat>xml</outputFileFormat>
                 </configuration>
             </plugin>
+
         </plugins>
         <testSourceDirectory>src/test/java</testSourceDirectory>
     </build>

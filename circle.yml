@@ -24,6 +24,15 @@ jobs:
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml  # Assurez-vous que ce chemin est correct
           token: CODECOV_TOKEN  # Assurez-vous d'ajouter le token Codecov dans les variables d'environnement de CircleCI, si nécessaire
+      - run:
+          name: Generate javadoc
+          command: mvn javadoc:javadoc
+      - run:
+          name: Publish to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GIT_HICH_TECH }}
+            publish_dir: ./target/site/apidocs
 
 workflows:
   version: 2
