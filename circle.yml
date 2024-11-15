@@ -15,9 +15,13 @@ jobs:
       - run:
           name: Run tests
           command: mvn test
+
       - run:
           name: Generate JaCoCo Report
           command: mvn jacoco:report
+      - run:
+          name: Compile and Check Code Style
+          command: mvn clean compile checkstyle:check
       - codecov/upload:
           file: target/site/jacoco/jacoco.xml  # Assurez-vous que ce chemin est correct
           token: CODECOV_TOKEN  # Assurez-vous d'ajouter le token Codecov dans les variables d'environnement de CircleCI, si nécessaire
