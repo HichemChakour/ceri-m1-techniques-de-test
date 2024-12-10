@@ -6,7 +6,7 @@
 ![Build Status](https://circleci.com/gh/HichemChakour/ceri-m1-techniques-de-test.svg?style=svg)
 [![codecov](https://codecov.io/gh/HichemChakour/ceri-m1-techniques-de-test/graph/badge.svg?token=B9YBWZ5XET)](https://codecov.io/gh/HichemChakour/ceri-m1-techniques-de-test)
 ![Checkstyle](https://img.shields.io/badge/Checkstyle-Passing-brightgreen)
-[![Javadoc](https://img.shields.io/badge/Javadoc-Online-blue)](https://<votre-utilisateur>.github.io/<votre-repo>/)
+[![Javadoc](https://img.shields.io/badge/Javadoc-Online-blue)](https://HichemChakour.github.io/ceri-m1-techniques-de-test/)
 
 
 ## Description
