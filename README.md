@@ -10,7 +10,14 @@
 
 
 ## Description
-Ce projet a été développé.
+La factory de la Team Rocket présente des efforts louables, comme l'utilisation de structures immuables, mais souffre de problèmes majeurs, notamment des performances médiocres, une gestion incomplète des mappages et un manque de validations.
+
+**Le mieux**
+Optimiser la méthode generateRandomStat pour éviter des calculs inutiles.
+Compléter la map index2name avec les noms des Pokémon manquants.
+Documenter ou ajuster les comportements pour les indices négatifs.
+Ajouter des validations d’entrée pour éviter des incohérences.
+
 
 ## Choix techniques
 - **Tests** : Utilisation de JUnit et Mockito.
