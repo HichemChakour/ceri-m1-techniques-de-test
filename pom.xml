@@ -95,7 +95,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <id>generate-checkstyle-report</id>
@@ -107,8 +107,8 @@
                 </executions>
                 <configuration>
                     <configLocation>src/main/resources/checkstyle.xml</configLocation>
-                    <consoleOutput>false</consoleOutput>
-                    <failsOnError>false</failsOnError>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
                     <outputFileFormat>xml</outputFileFormat>
                 </configuration>
             </plugin>

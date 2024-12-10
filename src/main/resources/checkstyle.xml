@@ -4,15 +4,31 @@
         "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="Checker">
-    <!-- Ajoutez vos modules ici, sauf ceux spécifiques à TreeWalker -->
+    <!-- Vérifications globales -->
     <module name="TreeWalker">
-        <!-- Exemple de modules sous TreeWalker -->
+        <!-- Vérifications des espaces blancs -->
         <module name="WhitespaceAfter"/>
         <module name="WhitespaceAround"/>
+
+        <!-- PascalCase pour les noms de types (classes, interfaces, enums) -->
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- camelCase pour les noms de variables -->
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- camelCase pour les noms de membres (attributs, méthodes) -->
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
     </module>
-    <!-- Placez LineLength ici, hors de TreeWalker -->
+
+    <!-- Longueur de ligne maximale autorisée -->
     <module name="LineLength">
-        <property name="max" value="120"/> <!-- Longueur maximale autorisée -->
-        <property name="ignorePattern" value="^.*$"/> <!-- Exclusions si nécessaires -->
+        <property name="max" value="120"/>
+        <property name="ignorePattern" value="^.*$"/>
     </module>
 </module>
